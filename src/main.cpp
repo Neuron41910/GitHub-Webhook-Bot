@@ -24,20 +24,6 @@ int main()
     CROW_ROUTE(app, "/")
     ([]() { return "Hey! I am working !!"; });
 
-    //just to handle /start message ⚡ (with webhook)
-    CROW_ROUTE(app, "/telegram").methods("POST"_method)([](const crow::request &req) {
-        auto x = crow::json::load(req.body);
-        if (!x)
-            return crow::response(400);
-        int user = x["message"]["from"]["id"].i();
-        string text = x["message"]["text"].s();
-        if (text == "/start")
-        {
-            send_mess(rep_mess, user);
-        }
-        return crow::response(200);
-    });
-
     //just to handle github post requests ⚡
     CROW_ROUTE(app, "/github").methods("POST"_method)([](const crow::request &req) {
         auto x = crow::json::load(req.body);
