@@ -51,7 +51,7 @@ int main()
 
         send_mess(message, usr_id);
 
-        string ret_mess = "By gautamajay52";
+        string ret_mess = "By @AsmSafone!";
         std::ostringstream os;
         os << ret_mess;
         return crow::response{os.str()};
