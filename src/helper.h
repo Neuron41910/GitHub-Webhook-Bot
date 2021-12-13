@@ -13,7 +13,6 @@ string usr_bot = getenv("TOKEN");
 char *port = getenv("PORT");
 uint16_t PORT = static_cast<uint16_t>(port != NULL ? atoi(port) : 18080);
 
-string rep_mess = "Hey! I am working ⚡"; // Reply message after sending /start to your bot (only works if webhook is set)
 
 void send_mess(string message, long usr)
 {
